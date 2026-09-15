@@ -10,52 +10,43 @@ namespace Lab04
     {
         static void Main(string[] args)
         {
-            // 1.const (Pascalcase) - ชื่อยานพหานะ/ระบบ
-            const string VesselName = "USS Enterprise";
-
-            // 2. var (camelcase) - ใช้กับ string เเละ char รวมกัน 2 ตัว
-            var pilotCallsign = "Captain Kirk"; //ใช้ var บน string
-            var shipClass = 'A'; //ใช้ var บน char
-
-            // 3. ชนิดข้อมูลพื้นฐาน 6 เเบบ
-            // string : pilotCallsign
-            // char : shipClass
-            // int : warplevel
-            // float : shieldPerrcentage
-            // double : fuelCellLevel
-            // bool : hyperdriveReady
-            int warplevel = 8;
-            float shieldPerrcentage = 0.85f;
-            double fuelCellLevel = 67.8;
-            bool hyperdriveReady = true;
-
-            // Display Output - เปลี่ยนเป็นธีม Dashboard ยานอวกาศ
             Console.WriteLine("+------------------------------+");
-            Console.WriteLine("|        VESSEL DASHBOARD      |");
+            Console.WriteLine("|      CHARACTER CREATION       |");
             Console.WriteLine("+------------------------------+");
-            Console.WriteLine($"Vessel Name: {VesselName}");
-            Console.WriteLine($"Pilot Callsign: {pilotCallsign}");
-            Console.WriteLine($"Ship Class: {shipClass}");
-            Console.WriteLine($"Warp Level: {warplevel}");
-            Console.WriteLine($"Shield Percentage: {shieldPerrcentage:P2}");
-            Console.WriteLine($"Fuel Cell Level: {fuelCellLevel:F1}");
-            Console.WriteLine($"Hyperdrive Ready: {hyperdriveReady}");
-            Console.WriteLine($"+------------------------------+");
-            Console.WriteLine();
+            Console.Write("Name your character: ");
+            string charName = Console.ReadLine();
+            Console.Write("Choose a class (1-3): ");
+            bool classOk = int.TryParse(Console.ReadLine(), out int classNum);
+            Console.Write("Starting luck (0.0-10.0): ");
+            bool luckOk = double.TryParse(Console.ReadLine(), out double luck);
+            Console.WriteLine($"{charName} the Class-{classNum} adventurer enters the dungeon. Luck: {luck}");
 
-            // 4. Implicit Converslion
-            double warpLevelDouble = warplevel;
-            Console.WriteLine($"[LOG] Warp Level (Implicit Double): {warpLevelDouble}");
+            Console.WriteLine("+------------------------------+");
+            Console.WriteLine("|           ITEM SHOP           |");
+            Console.WriteLine("+------------------------------+");
+            Console.Write("How many potions? ");
+            bool quantityOk = int.TryParse(Console.ReadLine(), out int quantity);
+            Console.WriteLine($"Valid input: {quantityOk}");
+            Console.WriteLine($"Quantity: {quantity}");
 
-            // 5. Explcit Cast vs Convert.Toint32()
-            // (int) จะทำการตัดเศษทิ้งเสมอ
-            int fuelRounded = Convert.ToInt32(fuelCellLevel);
+            Console.WriteLine("+------------------------------+");
+            Console.WriteLine("|          SET VOLUME           |");
+            Console.WriteLine("+------------------------------+");
+            Console.Write("Set music volume (0.0-1.0): ");
+            bool volumeOk = double.TryParse(Console.ReadLine(), out double volume);
+            Console.WriteLine($"Valid input: {volumeOk}");
+            Console.WriteLine($"Volume: {volume}");
 
-            Console.WriteLine($"[CAST] Fuel Level (Truncated): {fuelRounded}");
-            Console.WriteLine($"[CONVERT] Fuel Level (Rounded): {fuelCellLevel}");
-            Console.WriteLine($"+------------------------------+");
-
-
-
+            Console.WriteLine("+------------------------------+");
+            Console.WriteLine("|         NEW SAVE FILE         |");
+            Console.WriteLine("+------------------------------+");
+            Console.Write("Enter save name: ");
+            string saveName = Console.ReadLine();
+            Console.Write("Choose save slot (1-3): ");
+            bool slotOk = int.TryParse(Console.ReadLine(), out int slot);
+            Console.WriteLine($"Save name: {saveName}");
+            Console.WriteLine($"Valid input: {slotOk}");
+            Console.WriteLine($"Slot: {slot}");
         }
     }
+}
